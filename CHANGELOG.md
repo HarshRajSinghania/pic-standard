@@ -10,6 +10,7 @@ https://semver.org/
 ### Added
 
 - `pic-cli verify --json` emits the verification outcome as one structured JSON object while preserving existing exit codes and the default human-readable output.
+- Optional, additive pre-execution hook for the MCP guard. `guard_mcp_tool` and `guard_mcp_tool_async` accept an `on_allow` integration gate that, when configured, constructs a structured `MCPAllowDecision` and sanitized `MCPToolCall` for each allow, after PIC allows and audits and before tool dispatch, as an alternative to parsing the `pic_standard.mcp` JSON audit log. The synchronous callback is invoked once if context construction succeeds. New public types `MCPAllowDecision`, `MCPPreExecuteHook`, and `MCPToolCall` are exported from `pic_standard.integrations`. A failure while constructing the hook context or running the callback fails closed as a distinct integration error (`PIC_INTERNAL_ERROR` envelope plus a `pic_mcp_hook_error` audit event), never a PIC `block`. No change to the PIC/1.0 wire format, PIC-CJSON/1.0, JSON schemas, evidence semantics, or conformance vectors; the allow event's `LogRecord.getMessage()` text remains byte-identical to prior releases.
 
 ## [0.9.0] - 2026-09-21
 
