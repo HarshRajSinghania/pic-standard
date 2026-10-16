@@ -93,6 +93,12 @@ Neither signing mode proves the identity or authority of the human who
 approved an action, proves key custody, or prevents replay on its own.
 Those remain operator/downstream responsibilities.
 
+In v0.9.1 and later, the MCP guard and HTTP bridge additionally bind the
+sanitized live tool arguments to the verified `action.args` by canonical
+digest equality and emit `PIC_ARG_BINDING_MISMATCH` on divergence; this
+closes a prior fail-open gap but does not substitute for operator policy
+on tool exposure.
+
 ## Two abuse paths to test
 
 1. **Untrusted instruction → payment attempt.** An external document asks an
