@@ -4,10 +4,10 @@
 
 PIC Standard is pre-1.0; the protocol is still iterating, and only the latest minor release receives security fixes. Older versions receive no patches; users are expected to upgrade to the latest minor on the v0.x line.
 
-| Version | Status                              |
-|---------|-------------------------------------|
-| 0.8.x   | Supported — security fixes provided |
-| < 0.8.0 | End of life — no security fixes     |
+| Version | Status                            |
+|---------|-----------------------------------|
+| 0.9.x   | Supported: security fixes provided |
+| < 0.9.0 | End of life: no security fixes     |
 
 Once v1.0 ships and the protocol freezes, the supported-versions policy will be revised in this document.
 
@@ -25,7 +25,7 @@ That channel is end-to-end private to the maintainers and produces a coordinated
 
 ## What to include in a report
 
-- **Affected version(s):** the PIC release(s) you reproduced the issue on (e.g., 0.8.1)
+- **Affected version(s):** the PIC release(s) you reproduced the issue on (e.g., 0.9.1)
 - **Component:** which part of the codebase is affected (e.g., `pic_standard.canonical`, `pic_standard.verifier`, `integrations/openclaw`, conformance vectors)
 - **Reproduction:** the smallest input or sequence of operations that triggers the issue — include exact commands, file contents, and environment details if relevant
 - **Impact assessment:** what an attacker can do with the issue. Be concrete: information disclosure, signature bypass, denial of service, integrity violation, canonicalization mismatch leading to verification bypass, etc.
@@ -60,7 +60,7 @@ Reporters are credited in the published advisory unless they explicitly request 
 - Third-party plugins, adapters, or implementations not maintained in this repository
 - Hosted services that run PIC as a component — report to the operator of the service
 - Vulnerabilities whose root cause is in a transitive dependency are typically fixed upstream first; you may report them upstream, but reports are still welcome here when they materially affect PIC Standard users or deployment guidance
-- Issues in pre-v0.8.0 releases (end of life)
+- Issues in pre-v0.9.0 releases (end of life)
 
 ## Cryptographic signing of communications
 
